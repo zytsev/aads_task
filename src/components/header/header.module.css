@@ -1,0 +1,13 @@
+.header {
+    padding: 1rem clamp(1rem, -2rem + 13.33vw, 10rem);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.nav > img {
+    cursor: pointer;
+}

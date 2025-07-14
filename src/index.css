@@ -13,9 +13,9 @@
     -moz-osx-font-smoothing: grayscale;
 
     --clr-primary: #f2f4f6;
-    --clr-primary-ligth: #f2f5f8;
+    --clr-primary-ligth: #f8f9fa;
     --clr-seconary: #6b7073;
-    --clr-accent: #d8dfe3;
+    --clr-accent: #00aaff;
 
     --fs-300: 0.875rem; /* 14px */
     --fs-400: 1rem; /* 16px */
@@ -56,22 +56,18 @@ li {
     all: unset;
 }
 button {
+    padding: 8px 12px;
     border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: #1a1a1a;
+    border: 1px solid var(--clr-seconary);
+    font-size: var(--fs-300);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    transition: border-color 0.25s;
+    transition: 0.3s;
 }
-button:hover {
-    border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
+button:active {
+    transform: scale(0.95);
 }
 
 @media (prefers-color-scheme: light) {

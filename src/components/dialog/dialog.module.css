@@ -1,0 +1,52 @@
+.dialog {
+    width: 100%;
+    max-width: 40rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    border: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.title,
+.checkboxes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.form {
+    display: grid;
+    margin-top: 1rem;
+}
+form > label,
+.form > p {
+    margin-top: 0.5rem;
+}
+.form > input {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--clr-seconary);
+    font-size: var(--fs-300);
+}
+.checkboxes {
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.checkbox > input {
+    border-radius: 5px;
+    border: 1px solid var(--clr-seconary);
+    width: 1.2rem;
+    aspect-ratio: 1/1;
+}
+.buttons {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: end;
+    margin-top: 1.5rem;
+}

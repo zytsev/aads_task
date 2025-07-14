@@ -1,0 +1,19 @@
+.campaigns {
+    background-color: aliceblue;
+}
+.title {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+.create_btn {
+    width: auto;
+}
+@media (width<361px) {
+    .title {
+        flex-wrap: wrap;
+    }
+    .create_btn {
+        width: 100%;
+    }
+}

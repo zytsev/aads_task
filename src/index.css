@@ -16,6 +16,13 @@
     --clr-primary-ligth: #f2f5f8;
     --clr-seconary: #6b7073;
     --clr-accent: #d8dfe3;
+
+    --fs-300: 0.875rem; /* 14px */
+    --fs-400: 1rem; /* 16px */
+    --fs-450: 1.125rem; /* 18px */
+    --fs-500: 1.5rem; /* 24px */
+    --fs-600: 1.75rem; /* 28px */
+    --fs-700: 2.25rem; /* 36px */
 }
 * {
     box-sizing: border-box;
@@ -36,7 +43,7 @@ body {
     max-width: 1440px;
     width: 100%;
     margin: 0 auto;
-    text-align: center;
+    /* text-align: center; */
 }
 
 h1 {

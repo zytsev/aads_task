@@ -1,17 +1,15 @@
-import { useMediaQuery } from 'react-responsive';
+import { useMobile } from '../../hooks/useResponsive';
 import NavList from '../navList/NavList';
 import style from './footer.module.css';
 
 function Footer() {
-    const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
-
     return (
         <footer className={style.footer}>
             <div className={style.nav}>
-                <NavList className={isMobile ? style.colum : ''} />
+                <NavList className={useMobile() ? style.colum : ''} />
             </div>
             <hr />
-            <div className={`${style.term_block} ${isMobile && style.colum_term}`}>
+            <div className={`${style.term_block} ${useMobile() && style.colum_term}`}>
                 <span>© A-ADS 2011-2025</span>
                 <ul>
                     <li>

@@ -9,3 +9,7 @@
     flex-direction: column;
     justify-content: space-between;
 }
+.main {
+    padding: 0 clamp(1rem, -2rem + 13.33vw, 10rem);
+    flex: 1;
+}

@@ -1,0 +1,50 @@
+.btn {
+    border: none;
+    padding: 0;
+}
+.status {
+    padding: 0.2rem;
+    border-radius: 4px;
+    width: fit-content;
+}
+.status_green {
+    background-color: lightgreen;
+    color: green;
+}
+.status_red {
+    background-color: lightpink;
+    color: rgb(219, 23, 29);
+}
+.status_brown {
+    background-color: rgb(218, 134, 92);
+    color: brown;
+}
+.accent {
+    color: var(--clr-accent);
+    word-break: break-all;
+}
+.containerTmobile {
+    border-top: 1px solid var(--clr-seconary);
+    border-left: 1px solid var(--clr-seconary);
+    border-right: 1px solid var(--clr-seconary);
+    border-radius: 4px;
+}
+.table {
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border-bottom: 1px solid var(--clr-seconary);
+}
+.t_left {
+    display: grid;
+}
+.menuItem:hover {
+    background-color: transparent;
+    color: inherit;
+}
+.menuItem {
+    display: flex;
+    justify-content: space-between;
+}

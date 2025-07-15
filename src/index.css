@@ -24,6 +24,9 @@
     --fs-600: 1.75rem; /* 28px */
     --fs-700: 2.25rem; /* 36px */
 }
+html {
+    overflow-y: scroll;
+}
 * {
     box-sizing: border-box;
     margin: 0;

@@ -1,7 +1,11 @@
 import { useState } from 'react';
 import { Dialog } from '../../dialog/Dialog';
-import { Button } from '../../ui/button/Button';
+import Button from '../../ui/button/Button';
 import style from './campaigns.module.css';
+import { TableData } from '../table/Table';
+import { useMobile } from '../../../hooks/useResponsive';
+import { TableMobile } from '../table/TableMobile';
+import data from '../../../assets/data/campaigns.json';
 
 interface CampaignsProps {
     className?: string;
@@ -20,6 +24,7 @@ export const Campaigns = ({ className = '' }: CampaignsProps) => {
                 <h3>Campaigns</h3>
                 <Button title='+ Create New Campaign' className={style.create_btn} action={handleOpenDialog} />
             </div>
+            {useMobile() ? <TableMobile data={data} /> : <TableData />}
             <Dialog isOpen={isOpenDialog} handleClose={handleCloseDialog} />
         </section>
     );

@@ -1,11 +1,16 @@
 import { Table } from '@radix-ui/themes';
-import style from './tableData.module.css';
+import style from './table.module.css';
 import Button from '../../ui/button/Button';
-import data from '../../../assets/data/campaigns.json';
-// interface TableProps {
-//     className?: string;
-// }
-export const TableData = () => {
+
+import { deleteCampaign, type CampaignState } from '../../../store/campaignsSlice';
+import { useDispatch } from 'react-redux';
+
+interface Props {
+    data: CampaignState[];
+}
+export const TableFull = ({ data }: Props) => {
+    const dispatch = useDispatch();
+
     return (
         <Table.Root>
             <Table.Header>
@@ -31,7 +36,7 @@ export const TableData = () => {
                                     el.Status === 'Active' ? style.status_green : el.Status === 'Warning' ? style.status_red : style.status_brown
                                 }`}
                             >
-                                {el.Status}
+                                {el.Status || 'Paused'}
                             </span>
                         </Table.Cell>
                         <Table.Cell>
@@ -42,7 +47,7 @@ export const TableData = () => {
                         <Table.Cell>{el.Clicks}</Table.Cell>
                         <Table.Cell>{el.CTR}</Table.Cell>
                         <Table.Cell>
-                            <Button className={style.btn}>
+                            <Button className={style.btn} action={() => dispatch(deleteCampaign({ id: el.id }))}>
                                 <img src='/Vector.png' alt='basket' />
                             </Button>
                         </Table.Cell>

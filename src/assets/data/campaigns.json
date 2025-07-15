@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": "1",
         "Campaign": "Кампания #109972",
         "Status": "Active",
         "Payment_model": "0.00067627 Ƀ",
@@ -10,7 +10,7 @@
         "CTR": "0.5%"
     },
     {
-        "id": 2,
+        "id": "2",
         "Campaign": "Длинное название кампании #109973",
         "Status": "Warning",
         "Payment_model": "0.00067627 Ƀ",
@@ -20,7 +20,7 @@
         "CTR": "0.5%"
     },
     {
-        "id": 3,
+        "id": "3",
         "Campaign": "Кампания #109974",
         "Status": "Paused",
         "Payment_model": "0.00067627 Ƀ",
@@ -30,7 +30,7 @@
         "CTR": "0.5%"
     },
     {
-        "id": 4,
+        "id": "4",
         "Campaign": "Кампания #109975",
         "Status": "Active",
         "Payment_model": "0.00067627 Ƀ",
@@ -40,7 +40,7 @@
         "CTR": "0.5%"
     },
     {
-        "id": 5,
+        "id": "5",
         "Campaign": "Кампания #109976",
         "Status": "Active",
         "Payment_model": "0.00067627 Ƀ",
@@ -50,7 +50,7 @@
         "CTR": "0.5%"
     },
     {
-        "id": 6,
+        "id": "6",
         "Campaign": "Кампания #109977",
         "Status": "Active",
         "Payment_model": "0.00067627 Ƀ",
@@ -60,7 +60,7 @@
         "CTR": "0.5%"
     },
     {
-        "id": 7,
+        "id": "7",
         "Campaign": "Кампания #109978",
         "Status": "Active",
         "Payment_model": "0.00067627 Ƀ",
@@ -70,7 +70,7 @@
         "CTR": "0.5%"
     },
     {
-        "id": 8,
+        "id": "8",
         "Campaign": "Кампания #109979",
         "Status": "Active",
         "Payment_model": "0.00067627 Ƀ",

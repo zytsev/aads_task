@@ -1,20 +1,14 @@
 import { Button, DropdownMenu } from '@radix-ui/themes';
 import CustomBtn from '../../ui/button/Button';
-import style from './tableData.module.css';
-interface Prop {
-    id: number;
-    Campaign: string;
-    Status: string;
-    Payment_model: string;
-    Spendings: string;
-    Impressions: string;
-    Clicks: string;
-    CTR: string;
-}
+import style from './table.module.css';
+import { deleteCampaign, type CampaignState } from '../../../store/campaignsSlice';
+import { useDispatch } from 'react-redux';
+
 interface Props {
-    data: Prop[];
+    data: CampaignState[];
 }
 export const TableMobile = ({ data }: Props) => {
+    const dispatch = useDispatch();
     return (
         <div className={style.containerTmobile}>
             {data.map((el) => (
@@ -26,7 +20,7 @@ export const TableMobile = ({ data }: Props) => {
                                 el.Status === 'Active' ? style.status_green : el.Status === 'Warning' ? style.status_red : style.status_brown
                             }`}
                         >
-                            {el.Status}
+                            {el.Status || 'Paused'}
                         </span>
                     </div>
 
@@ -44,7 +38,7 @@ export const TableMobile = ({ data }: Props) => {
                             <DropdownMenu.Item shortcut={el.CTR}>CTR</DropdownMenu.Item>
                             <DropdownMenu.Item className={style.menuItem}>
                                 <CustomBtn className={style.btnPage}>Go to Campaign Page</CustomBtn>
-                                <CustomBtn className={style.btn}>
+                                <CustomBtn className={style.btn} action={() => dispatch(deleteCampaign({ id: el.id }))}>
                                     <img src='/Vector.png' alt='basket' />
                                 </CustomBtn>
                             </DropdownMenu.Item>

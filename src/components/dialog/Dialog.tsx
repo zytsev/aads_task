@@ -1,35 +1,66 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { checkboxes } from '../../assets/data/checkboxes';
-import { Button } from '../ui/button/Button';
+import Button from '../ui/button/Button';
 import style from './dialog.module.css';
+import { useDispatch } from 'react-redux';
+import { addCampaign } from '../../store/campaignsSlice';
 
 interface DialogProps {
     className?: string;
-    isOpen: boolean;
-    handleClose: () => void;
+    isOpenDialog: boolean;
+    handleCloseDialog: () => void;
 }
 
-export const Dialog = ({ className = '', isOpen, handleClose }: DialogProps) => {
-    const dialogRef = useRef(null);
+export const Dialog = ({ className = '', isOpenDialog, handleCloseDialog }: DialogProps) => {
+    const dialogRef = useRef<HTMLDialogElement | null>(null);
+    const [Campaign, setCampaign] = useState('');
+    const dispatch = useDispatch();
+
+    const handleAction = () => {
+        if (Campaign.trim().length) {
+            dispatch(addCampaign({ Campaign }));
+            setCampaign('');
+            handleCloseDialog();
+        }
+    };
+
+    const handleCancel = () => {
+        setCampaign('');
+        handleCloseDialog();
+    };
 
     useEffect(() => {
-        if (isOpen) {
-            dialogRef.current.showModal();
-        } else {
-            dialogRef.current.close();
+        const dialog = dialogRef.current;
+        if (!dialog) return;
+        if (isOpenDialog && !dialog.open) {
+            dialog.showModal();
+        } else if (!isOpenDialog && dialog.open) {
+            dialog.close();
         }
-    }, [isOpen]);
+    }, [isOpenDialog]);
+
+    // exit key esc
+    useEffect(() => {
+        const dialog = dialogRef.current;
+        if (!dialog) return;
+        const handleClose = () => {
+            handleCloseDialog();
+        };
+        dialog.addEventListener('close', handleClose);
+        return () => dialog.removeEventListener('close', handleClose);
+    }, [handleCloseDialog]);
+
     return (
         <dialog ref={dialogRef} className={`${style.dialog} ${className}`}>
             <div className={style.title}>
                 <h2>Create New Campaign</h2>
-                <Button title='⨉' action={handleClose} />
+                <Button title='⨉' action={handleCloseDialog} />
             </div>
             <form action='#' className={style.form}>
                 <label htmlFor='campaign'>Campaign name</label>
-                <input type='text' placeholder='Campaign name' name='campaign' id='campaign' />
+                <input type='text' placeholder='Campaign name' name='campaign' id='campaign' value={Campaign} onChange={(e) => setCampaign(e.target.value)} />
                 <p>Language</p>
-                <input type='text' placeholder='Choose language' name='language' />
+                <input type='text' placeholder='Language' name='language' />
                 <p>Ratings</p>
                 <div className={style.checkboxes}>
                     {checkboxes.map((el) => (
@@ -40,8 +71,8 @@ export const Dialog = ({ className = '', isOpen, handleClose }: DialogProps) => 
                     ))}
                 </div>
                 <div className={style.buttons}>
-                    <Button title='Cancel' />
-                    <Button title='Create campaign' accent={true} />
+                    <Button title='Cancel' action={handleCancel} />
+                    <Button title='Create campaign' accent={true} action={handleAction} />
                 </div>
             </form>
         </dialog>

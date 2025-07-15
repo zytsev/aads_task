@@ -1,69 +1,23 @@
-# React + TypeScript + Vite
+https://www.figma.com/design/HAMWA749n84IiD0S9CZPC5/Untitled?node-id=0-1&p=f&t=a3ZtpZwJNPD1KqLl-11
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+AADS // Тестовое задание Frontend
 
-Currently, two official plugins are available:
+Задача
+Необходимо реализовать интерфейс по представленному макету — адаптивную страницу для управления рекламными кампаниями.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Функциональные требования
+Верстка
+Сверстать страницу по приложенному макету (десктоп и мобильная версия).
+Адаптивность: реализовать корректное отображение на десктопах и телефонах. Адаптация под планшеты не требуется, но верстка не должна "ломаться" на промежуточных разрешениях.
 
-## Expanding the ESLint configuration
+Таблица
+Отображать список рекламных кампаний в таблице.
+Предусмотреть возможность добавления и удаления записей из таблицы.
+Список кампаний должен храниться в state-менеджере.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Состояние
+Предпочтительно — Redux (используется в основном проекте).
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Дополнительно
+Иконки, изображения и цвета можно заменить на аналогичные.
+Backend не требуется — реализуется только клиентская логика.

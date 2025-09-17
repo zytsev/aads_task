@@ -1,6 +1,3 @@
-.button {
-    background-color: white;
-}
 .button_accent {
     background-color: var(--clr-accent);
     color: white;
